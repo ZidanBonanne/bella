@@ -26,8 +26,8 @@ const closeModal = function () {
 };
 btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
 
-btnCloseModal.addEventListener('click', closeModal);
-overlay.addEventListener('click', closeModal);
+// btnCloseModal.addEventListener('click', closeModal);
+// overlay.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
@@ -82,22 +82,22 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 //   })
 // );
 
-tabsContainer.addEventListener('click', function (e) {
-  const clicked = e.target.closest('.operations__tab');
+// tabsContainer.addEventListener('click', function (e) {
+//   const clicked = e.target.closest('.operations__tab');
 
-  //guard clause
-  if (!clicked) return;
+//   //guard clause
+//   if (!clicked) return;
 
-  //remove active classes
-  tabs.forEach(t => t.classList.remove('operations__tab--active'));
-  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
-  // activate tab
-  clicked.classList.add('operations__tab--active');
-  // activate content area
-  document
-    .querySelector(`.operations__content--${clicked.dataset.tab}`)
-    .classList.add('operations__content--active');
-});
+//   //remove active classes
+//   tabs.forEach(t => t.classList.remove('operations__tab--active'));
+//   tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+//   // activate tab
+//   clicked.classList.add('operations__tab--active');
+//   // activate content area
+//   document
+//     .querySelector(`.operations__content--${clicked.dataset.tab}`)
+//     .classList.add('operations__content--active');
+// });
 /////////////////////////////////////////////////////
 
 // menu fade animation
@@ -110,7 +110,7 @@ const handleHover = function (e) {
     siblings.forEach(el => {
       if (el !== link) el.style.opacity = this;
     });
-    logo.style.opacity = this;
+    // logo.style.opacity = this;
   }
 };
 nav.addEventListener('mouseover', handleHover.bind(0.5));
@@ -210,15 +210,15 @@ const slider = function () {
     });
   };
 
-  const activeteDot = function (slide) {
-    document
-      .querySelectorAll('.dots__dot')
-      .forEach(dot => dot.classList.remove('dots__dot--active'));
-    document
-      .querySelector(`.dots__dot[data-slide="${slide}"]`)
-      .classList.add('dots__dot--active');
-    // console.log(slide);
-  };
+  // const activeteDot = function (slide) {
+  //   document
+  //     .querySelectorAll('.dots__dot')
+  //     .forEach(dot => dot.classList.remove('dots__dot--active'));
+  //   document
+  //     .querySelector(`.dots__dot[data-slide="${slide}"]`)
+  //     .classList.add('dots__dot--active');
+  //   // console.log(slide);
+  // };
 
   let curSlider = 0;
   const maxSlider = slides.length - 1;
@@ -248,8 +248,8 @@ const slider = function () {
     goToSlide(curSlider);
     activeteDot(curSlider);
   };
-  btnRight.addEventListener('click', nextSlide);
-  btnLeft.addEventListener('click', prevSlide);
+  // btnRight.addEventListener('click', nextSlide);
+  // btnLeft.addEventListener('click', prevSlide);
   document.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowRight') nextSlide();
 
@@ -260,7 +260,7 @@ const slider = function () {
     goToSlide(0);
     activeteDot(0);
   };
-  init();
+  // init();
   dotContainer.addEventListener('click', function (e) {
     if (e.target.classList.contains('dots__dot')) {
       // console.log('dot');
@@ -271,13 +271,30 @@ const slider = function () {
     }
   });
 };
-slider();
+// slider();
 
-window.addEventListener('beforeunload', function (e) {
-  e.preventDefault();
-  console.log(e);
-  e.returnValue = '';
+// menu responsivo
+let show = true;
+const menuSection = document.querySelector('.menu--section');
+const menuToggle = document.querySelector('.menu--toggle');
+const navItem = document.getElementById('nav');
+
+menuToggle.addEventListener('click', () => {
+  document.body.style.overflow = show ? 'hidden' : 'initial';
+  menuSection.classList.toggle('on', show);
+  show = !show;
 });
+navItem.addEventListener('click', function () {
+  document.body.style.overflow = 'initial';
+  menuSection.classList.remove('on');
+  show = !show;
+});
+
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = '';
+// });
 /////////////////////////////////////////////////////
 
 //rbg(255,255,255)

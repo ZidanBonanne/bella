@@ -1,9 +1,16 @@
 /* The page is NOT responsive. You can implement responsiveness yourself if you wanna have some fun 😃 */
-
+/* palheta de cores  */
+/* 2 40 89 azul escuro
+232 77 63 laranja
+242 167 75 amarelo
+242 73 87 rosa
+242 181 145 beje */
 :root {
-  --color-primary: #5ec576;
-  --color-secondary: #ffcb03;
-  --color-tertiary: #ff585f;
+  --color-primary: rgb(2, 40, 89);
+
+  --color-secondary: rgb(231, 77, 63);
+  --color-tertiary: rgb(242 167 75);
+  --color-third: rgb(242 181 145);
   --color-primary-darker: #4bbb7d;
   --color-secondary-darker: #ffbb00;
   --color-tertiary-darker: #fd424b;
@@ -26,7 +33,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
   font-weight: 300;
   color: #444;
   line-height: 1.9;
@@ -35,10 +42,10 @@ body {
 
 /* GENERAL ELEMENTS */
 .section {
-  padding: 15rem 3rem;
+  padding: 10rem 3rem;
   border-top: 1px solid #ddd;
-
   transition: transform 1s, opacity 1s;
+  width: 100%;
 }
 
 .section--hidden {
@@ -47,7 +54,7 @@ body {
 }
 
 .section__title {
-  max-width: 80rem;
+  width: 90%;
   margin: 0 auto 8rem auto;
 }
 
@@ -69,7 +76,7 @@ body {
   display: inline-block;
   background-color: var(--color-primary);
   font-size: 1.6rem;
-  font-family: inherit;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
   font-weight: 500;
   border: none;
   padding: 1.25rem 4.5rem;
@@ -86,7 +93,7 @@ body {
   display: inline-block;
   background: none;
   font-size: 1.7rem;
-  font-family: inherit;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
   font-weight: 500;
   color: var(--color-primary);
   border: none;
@@ -97,7 +104,8 @@ body {
 }
 
 p {
-  color: #666;
+  color: black;
+  text-align: center;
 }
 
 /* This is BAD for accessibility! Don't do in the real world! */
@@ -119,20 +127,21 @@ img {
   justify-content: space-between;
   align-items: center;
   height: 9rem;
-  width: 100%;
+  /* width: 100%; */
   padding: 0 6rem;
   z-index: 100;
 }
 
 /* nav and stickly class at the same time */
-.nav.sticky {
+/* .nav.sticky {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.95);
-}
+} */
 
 .nav__logo {
   height: 4.5rem;
   transition: all 0.3s;
+  align-self: center;
 }
 
 .nav__links {
@@ -177,24 +186,26 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgb(242 181 145);
+  color: rgb(2 40 89);
+}
+.menu--section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
 }
 
 .header__title {
   flex: 1;
 
-  max-width: 115rem;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  row-gap: 3rem;
-  align-content: center;
-  justify-content: center;
-
-  align-items: start;
-  justify-items: start;
+  width: 90%;
+  display: inline;
+  margin: 10% 0;
 }
 
 h1 {
-  font-size: 5.5rem;
+  font-size: 5rem;
   line-height: 1.35;
 }
 
@@ -204,7 +215,8 @@ h4 {
 }
 
 .header__img {
-  width: 100%;
+  width: 90%;
+  /* height: 0%; */
   grid-column: 2 / 3;
   grid-row: 1 / span 4;
   transform: translateY(-6rem);
@@ -243,8 +255,13 @@ h4 {
 .features__feature {
   align-self: center;
   justify-self: center;
-  width: 70%;
+  width: 100%;
   font-size: 1.5rem;
+}
+
+.features__contents {
+  display: contents;
+  width: 100%;
 }
 
 .features__icon {
@@ -266,7 +283,8 @@ h4 {
 
 .features__header {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
+  text-align: center;
 }
 
 /* OPERATIONS */
@@ -411,7 +429,7 @@ h4 {
 
   border: none;
   background: rgba(255, 255, 255, 0.7);
-  font-family: inherit;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
   color: #333;
   border-radius: 50%;
   height: 5.5rem;
@@ -476,7 +494,7 @@ h4 {
   left: -6.8rem;
   line-height: 1;
   font-size: 20rem;
-  font-family: inherit;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
   color: var(--color-primary);
   z-index: -1;
 }
@@ -554,17 +572,20 @@ h4 {
 
 .footer__nav {
   list-style: none;
+  /* width: 0%; */
   display: flex;
   justify-content: center;
+  margin: 0 auto;
   margin-bottom: 5rem;
 }
 
 .footer__item {
-  margin-right: 4rem;
+  margin: 0 2rem;
 }
 
 .footer__link {
-  font-size: 1.6rem;
+  width: 3rem;
+  /* font-size: 1.2rem; */
   color: #eee;
   text-decoration: none;
 }
@@ -645,7 +666,7 @@ h4 {
 }
 
 .btn--close-modal {
-  font-family: inherit;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
   color: inherit;
   position: absolute;
   top: 0.5rem;
@@ -660,6 +681,10 @@ h4 {
   visibility: hidden;
   opacity: 0;
 }
+#me {
+  border-radius: 25%;
+  width: 50%;
+}
 
 /* COOKIE MESSAGE */
 .cookie-message {
@@ -671,4 +696,121 @@ h4 {
   color: #bbb;
   font-size: 1.5rem;
   font-weight: 400;
+}
+@media (max-width: 1060px) {
+  .header__title {
+    display: inline;
+    width: 100%;
+  }
+  .header__img {
+    display: none;
+  }
+  .section__title {
+    width: 100%;
+  }
+  .features {
+    flex-direction: column;
+    display: inline;
+    margin: 0;
+    width: 100%;
+  }
+  .features__feature {
+    text-align: center;
+    width: 100%;
+  }
+  .features__icon {
+    display: inline-flex;
+  }
+
+  .features__contents {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .order1 {
+    order: 2;
+  }
+  .order2 {
+    order: 1;
+  }
+}
+@media (max-width: 705px) {
+  .nav {
+    display: none;
+  }
+  .one,
+  .two,
+  .three {
+    background-color: #fff;
+    height: 5px;
+    width: 100;
+    margin: 6px auto;
+    right: 0;
+    background-color: #222;
+    transition-duration: 0.3s;
+  }
+  .menu--section {
+    display: flex;
+    padding: 20px;
+  }
+
+  .menu--toggle {
+    width: 40px;
+    height: 30px;
+    margin-right: 20px;
+    /* border: black solid; */
+    /* align-items: center; */
+    position: absolute;
+    right: 5%;
+    top: 15px;
+  }
+  .on {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color-third);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu--section.on nav {
+    display: block;
+    /* margin: auto; */
+    height: 90%;
+    /* align-items: center; */
+    /* align-content: center; */
+    /* align-self: center;*/
+  }
+  .menu--section.on .nav__item {
+    margin: 0;
+  }
+
+  .menu--section.on .menu--toggle .one {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+  .menu--section.on .menu--toggle .two {
+    opacity: 0;
+  }
+  .menu--section.on .menu--toggle .three {
+    transform: rotate(-45deg) translate(7px, -10px);
+  }
+  .menu--section.on nav ul {
+    display: inline;
+    width: 100%;
+    text-align: center;
+    /* margin-top: 50px; */
+    align-content: flex-end;
+  }
+  .nav__link:link {
+    margin: 30% 0;
+    transition-duration: 0.5s;
+    font-size: 3rem;
+    display: block;
+  }
+  .menu--section.on #logo {
+    display: none;
+  }
 }
